@@ -1,0 +1,14 @@
+input,
+button,
+select {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(47, 47, 47);
+  margin: 10px;
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+}

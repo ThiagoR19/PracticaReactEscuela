@@ -1,0 +1,8 @@
+.Tarjeta {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 10px;
+}

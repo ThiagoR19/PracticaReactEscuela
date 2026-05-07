@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.Contenedor {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 50vw;
+}
+
+.Contenedor div {
+  display: flex;
+  width: 50%;
+}
