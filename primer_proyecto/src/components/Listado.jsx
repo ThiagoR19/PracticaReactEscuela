@@ -1,7 +1,7 @@
 import { Tarjeta } from "./Tarjeta.jsx"
 import './Listado.css'
 
-export default function Listado({ personas }) {
+export default function Listado({ personas, eliminar }) {
   return (
     <div className="ListadoContenedor">
       <h1>Componente Listado</h1>
@@ -14,7 +14,8 @@ export default function Listado({ personas }) {
             apellido={persona.apellido}
             anio={persona.anio}
             division={persona.division}
-            isAlumno={persona.isAlumno} />
+            isAlumno={persona.isAlumno}
+            eliminar={() => eliminar(persona.id)} />
         )}
       </div>
     </div>

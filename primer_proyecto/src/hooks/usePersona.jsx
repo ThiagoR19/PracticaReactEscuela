@@ -5,11 +5,12 @@ export default function usePersona() {
   const [nombre, setNombre] = useState('')
   const [documento, setDocumento] = useState('')
   const [apellido, setApellido] = useState('')
-  const [anio, setAnio] = useState('')
-  const [division, setDivision] = useState('')
+  const [anio, setAnio] = useState(1)
+  const [division, setDivision] = useState(1)
   const [rol, setRol] = useState('')
 
   const isAlumno = rol == 'Alumno'
+  const id = (new Date()).getTime()
 
   const cambiarValor = (campo, valor) => {
 
@@ -34,6 +35,7 @@ export default function usePersona() {
     division,
     rol,
     isAlumno,
+    id
   }, cambiarValor]
 
 }
