@@ -1,0 +1,58 @@
+.filterContainer {
+  padding: 30px;
+  background-color: #00916F;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 10px 0 10px 2px rgba(81, 81, 81, 0.25);
+}
+
+.categorias {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.btn-border-reveal {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  font-size: 20px;
+}
+
+.btn-border-reveal::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #00916F;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-border-reveal:hover::after {
+  width: 100%;
+}
+
+.btn-border-reveal:hover {
+  color: rgb(255, 255, 255);
+}

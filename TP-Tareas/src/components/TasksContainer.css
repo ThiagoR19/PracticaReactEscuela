@@ -1,0 +1,47 @@
+.tasksContainer {
+  width: 70%;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+h1 {
+  align-self: flex-start;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.tasksH2 {
+  align-self: flex-start;
+  margin: 0 0 10px 0;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addTask {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 2px solid black;
+  box-shadow: 0 4px 4px 0 rgba(0, 94, 255, 0.25);
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  align-self: flex-end;
+}
+
+.addTask:hover {
+  box-shadow: 0 0px 4px 2px rgba(0, 94, 255, 0.5);
+}
