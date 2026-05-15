@@ -1,16 +1,22 @@
 import './FilterContainer.css'
 
-function FilterContainer() {
+function FilterContainer({ filterTasks }) {
+
+  const categories = [
+    'Todas',
+    'Frontend',
+    'Backend',
+    'Base de datos',
+    'Testing',
+    'Seguridad',
+    'Documentación'
+  ]
+
   return (
     <section className='filterContainer'>
       <h2 className='categorias'>Categorias</h2>
       <div className='filters'>
-        <button className="btn btn-border-reveal">Frontend</button>
-        <button className="btn btn-border-reveal">Backend</button>
-        <button className="btn btn-border-reveal">Bases de datos</button>
-        <button className="btn btn-border-reveal">Testing</button>
-        <button className="btn btn-border-reveal">Seguridad</button>
-        <button className="btn btn-border-reveal">Documentación</button>
+        {categories.map((category) => <button key={category} onClick={() => filterTasks(category)} className="btn btn-border-reveal">{category}</button>)}
       </div>
     </section>
   )

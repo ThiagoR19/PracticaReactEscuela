@@ -88,30 +88,30 @@ select:open::picker(select) {
   background-color: white;
 }
 
-.baja {
+.BAJA {
   background-color: #0EDE3B;
   box-shadow: 0 4px 4px 0 rgba(14, 222, 59, 0.25);
 }
 
-.baja:hover {
+.BAJA:hover {
   box-shadow: 0 0px 4px 2px rgba(14, 222, 59, 0.5);
 }
 
-.media {
+.MEDIA {
   background-color: #FFCA44;
   box-shadow: 0 4px 4px 0 rgba(255, 202, 68, 0.25);
 }
 
-.media:hover {
+.MEDIA:hover {
   box-shadow: 0 0px 4px 2px rgba(255, 202, 68, 0.5);
 }
 
-.alta {
+.ALTA {
   background-color: #FF5744;
   box-shadow: 0 4px 4px 0 rgba(255, 0, 0, 0.25);
 }
 
-.alta:hover {
+.ALTA:hover {
   box-shadow: 0 0px 4px 2px rgba(255, 0, 0, 0.5);
 }
 

@@ -1,16 +1,14 @@
 import { FiTrash } from "react-icons/fi";
-import './Form.css'
 import { useState } from "react";
+import './Form.css'
 
-function Form({ agregar }) {
+function Form({ addTask }) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('frontend')
-  const [defaultPriority, setDefualtPriority] = useState('baja')
-  const [defaultState, setDefaultState] = useState('pendiente')
+  const [category, setCategory] = useState('Frontend')
+  const [defaultPriority, setDefualtPriority] = useState('BAJA')
+  const [defaultState, setDefaultState] = useState('Pendiente')
   const id = (new Date()).getTime()
-
-
 
   const handleClick = () => {
 
@@ -27,13 +25,14 @@ function Form({ agregar }) {
       state: defaultState,
       id
     }
-    agregar(task)
+
+    addTask(task)
 
     setName('')
     setDescription('')
-    setCategory('frontend')
-    setDefualtPriority('baja')
-    setDefaultState('pendiente')
+    setCategory('Frontend')
+    setDefualtPriority('BAJA')
+    setDefaultState('Pendiente')
   }
 
   return (
@@ -43,24 +42,23 @@ function Form({ agregar }) {
         <select value={category} onChange={(e) => setCategory(e.target.value)} className="category">
           <option value="Frontend">Frontend</option>
           <option value="Backend">Backend</option>
-          <option value="Base De Datos">Bases de datos</option>
+          <option value="Base de datos">Base de datos</option>
           <option value="Testing">Testing</option>
           <option value="Seguridad">Seguridad</option>
           <option value="Documentación">Documentación</option>
         </select>
-        <select value={defaultState} onChange={(e) => setDefaultState(e.target.value)} className="state" onClick={(e) => e.stopPropagation()}>
-          <option value="pendiente">Pendiente</option>
-          <option value="progreso">En Progreso</option>
-          <option value="finalizada">Finalizada</option>
+        <select value={defaultState} onChange={(e) => setDefaultState(e.target.value)} className="state">
+          <option value="Pendiente">Pendiente</option>
+          <option value="Proceso">En Proceso</option>
+          <option value="Finalizada">Finalizada</option>
         </select>
         <select
           value={defaultPriority}
           onChange={(e) => setDefualtPriority(e.target.value)}
-          onClick={(e) => e.stopPropagation()}
           className={`priority ${defaultPriority}`}>
-          <option value="baja">BAJA</option>
-          <option value="media">MEDIA</option>
-          <option value="alta">ALTA</option>
+          <option value="BAJA">BAJA</option>
+          <option value="MEDIA">MEDIA</option>
+          <option value="ALTA">ALTA</option>
         </select>
         <FiTrash className="trash" />
       </div>
@@ -69,7 +67,7 @@ function Form({ agregar }) {
         e.target.style.height = e.target.scrollHeight + "px";
       }}></textarea>
       <button onClick={handleClick} className="addTask" type="submit">Agregar Tarea</button>
-    </div>
+    </div >
   )
 }
 

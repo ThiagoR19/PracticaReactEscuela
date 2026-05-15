@@ -3,11 +3,9 @@ import './Task.css'
 import { useState } from "react";
 
 
-function Task({ name, category, index, description, defaultPriority, defaultState, id, eliminar }) {
+function Task({ name, category, index, description, defaultPriority, defaultState, id, deleteTask, updateTask }) {
 
   const [clicked, setClicked] = useState(false)
-  const [priority, setPriority] = useState(defaultPriority)
-  const [state, setState] = useState(defaultState)
 
   return (
     <div className={`task ${clicked ? 'taskClicked' : ''}`} onClick={() => setClicked(!clicked)}>
@@ -15,24 +13,24 @@ function Task({ name, category, index, description, defaultPriority, defaultStat
         <h3>{index}. {name}</h3>
         <span className="category">{category}</span>
         <select
-          value={state}
-          onChange={(e) => setState(e.target.value)}
+          value={defaultState}
+          onChange={(e) => updateTask(id, 'state', e.target.value)}
           className="state"
           onClick={(e) => e.stopPropagation()}>
-          <option value="pendiente">Pendiente</option>
-          <option value="progreso">En Progreso</option>
-          <option value="finalizada">Finalizada</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Proceso">En Progreso</option>
+          <option value="Finalizada">Finalizada</option>
         </select>
         <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
+          value={defaultPriority}
+          onChange={(e) => updateTask(id, 'priority', e.target.value)}
           onClick={(e) => e.stopPropagation()}
-          className={`priority ${priority}`}>
-          <option value="baja">BAJA</option>
-          <option value="media">MEDIA</option>
-          <option value="alta">ALTA</option>
+          className={`priority ${defaultPriority}`}>
+          <option value="BAJA">BAJA</option>
+          <option value="MEDIA">MEDIA</option>
+          <option value="ALTA">ALTA</option>
         </select>
-        <FiTrash onClick={() => eliminar(id)} className="trash" />
+        <FiTrash onClick={() => deleteTask(id)} className="trash" />
       </div>
       <p className={`descripcion ${clicked && description !== '' ? 'show' : ''}`}>
         {description}
