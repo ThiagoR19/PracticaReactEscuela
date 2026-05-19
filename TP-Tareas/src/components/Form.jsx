@@ -10,7 +10,9 @@ function Form({ addTask }) {
   const [defaultState, setDefaultState] = useState('Pendiente')
   const id = (new Date()).getTime()
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+
+    e.preventDefault()
 
     if (name === '') {
       alert('Complete todos los campos');
@@ -36,7 +38,7 @@ function Form({ addTask }) {
   }
 
   return (
-    <div className="form">
+    <form onSubmit={handleClick} className="form">
       <div>
         <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Nombre..." />
         <select value={category} onChange={(e) => setCategory(e.target.value)} className="category">
@@ -67,7 +69,7 @@ function Form({ addTask }) {
         e.target.style.height = e.target.scrollHeight + "px";
       }}></textarea>
       <button onClick={handleClick} className="addTask" type="submit">Agregar Tarea</button>
-    </div >
+    </form >
   )
 }
 

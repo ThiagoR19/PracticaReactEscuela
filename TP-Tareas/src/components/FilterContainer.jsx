@@ -1,16 +1,16 @@
 import './FilterContainer.css'
 
-function FilterContainer({ filterTasks }) {
+const categories = [
+  'Todas',
+  'Frontend',
+  'Backend',
+  'Base de datos',
+  'Testing',
+  'Seguridad',
+  'Documentación'
+]
 
-  const categories = [
-    'Todas',
-    'Frontend',
-    'Backend',
-    'Base de datos',
-    'Testing',
-    'Seguridad',
-    'Documentación'
-  ]
+function FilterContainer({ filterTasks }) {
 
   return (
     <section className='filterContainer'>
