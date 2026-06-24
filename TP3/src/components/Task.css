@@ -1,0 +1,142 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+  padding: 10px 30px;
+  border-radius: 40px;
+  align-items: center;
+  transition: all .2s;
+}
+
+.task div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: 18px;
+  color: #3B3B3B;
+  font-weight: 400;
+  flex: 2;
+}
+
+.state,
+.priority,
+.category {
+  margin: 0 10px;
+  flex: 1;
+  text-align: start;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.category {
+  border-radius: 20px;
+  border: 2px solid black;
+  box-shadow: 0 4px 4px 0 rgba(0, 94, 255, 0.25);
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+}
+
+.state {
+  border-radius: 20px;
+  border: 2px solid black;
+  box-shadow: 0 4px 4px 0 rgba(0, 94, 255, 0.25);
+  font-style: italic;
+  font-weight: 500;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+::picker(select) {
+  border: none;
+  background: #00916F;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: .2s;
+}
+
+select:open::picker(select) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.priority {
+  border-radius: 20px;
+  font-weight: 600;
+  color: white;
+  border: none;
+}
+
+.priority:focus {
+  outline: none;
+}
+
+.state:hover {
+  box-shadow: 0 0px 4px 2px rgba(0, 94, 255, 0.5);
+  background-color: white;
+}
+
+.BAJA {
+  background-color: #0EDE3B;
+  box-shadow: 0 4px 4px 0 rgba(14, 222, 59, 0.25);
+}
+
+.BAJA:hover {
+  box-shadow: 0 0px 4px 2px rgba(14, 222, 59, 0.5);
+}
+
+.MEDIA {
+  background-color: #FFCA44;
+  box-shadow: 0 4px 4px 0 rgba(255, 202, 68, 0.25);
+}
+
+.MEDIA:hover {
+  box-shadow: 0 0px 4px 2px rgba(255, 202, 68, 0.5);
+}
+
+.ALTA {
+  background-color: #FF5744;
+  box-shadow: 0 4px 4px 0 rgba(255, 0, 0, 0.25);
+}
+
+.ALTA:hover {
+  box-shadow: 0 0px 4px 2px rgba(255, 0, 0, 0.5);
+}
+
+.descripcion {
+  font-weight: 300;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: all .3s ease-in-out;
+  color: #3B3B3B;
+  font-style: italic;
+}
+
+.descripcion.show {
+  margin: 8px 0;
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.taskClicked {
+  border-radius: 30px;
+}
+
+.trash {
+  cursor: pointer;
+}

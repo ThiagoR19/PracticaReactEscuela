@@ -1,21 +1,35 @@
 import usePersona from '../hooks/usePersona'
+import axios from 'axios'
 import './Formulario.css'
 
-export default function Formulario({ guardar }) {
+const url = 'https://backend-septimos.ctpoba.edu.ar/api/personas'
+const config = {
+  headers: { Authorization: 47958998 }
+}
+
+export default function Formulario() {
 
   const [persona, setDatoPersona] = usePersona()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    guardar(persona)
+
+    axios.post(url, persona, config)
+      .then((resp) => {
+        console.log(resp)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+
   }
 
   return (
     <div className="FormularioContenedor">
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Documento" onChange={(e) => setDatoPersona('documento', e.target.value)} value={persona.documento} />
-        <input type="text" placeholder="Nombre" onChange={(e) => setDatoPersona('nombre', e.target.value)} value={persona.nombre} />
-        <input type="text" placeholder="Apellido" onChange={(e) => setDatoPersona('apellido', e.target.value)} value={persona.apellido} />
+        <input type="text" placeholder="Nombre" onChange={(e) => setDatoPersona('nombres', e.target.value)} value={persona.nombre} />
+        <input type="text" placeholder="Apellido" onChange={(e) => setDatoPersona('apellidos', e.target.value)} value={persona.apellido} />
         <select onChange={(e) => setDatoPersona('rol', e.target.value)} value={persona.rol}>
           <option value="Docente">Docente</option>
           <option value="Alumno">Alumno</option>

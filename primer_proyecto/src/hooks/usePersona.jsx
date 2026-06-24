@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 export default function usePersona() {
 
-  const [nombre, setNombre] = useState('')
+  const [nombres, setNombres] = useState('')
   const [documento, setDocumento] = useState('')
-  const [apellido, setApellido] = useState('')
+  const [apellidos, setApellidos] = useState('')
   const [anio, setAnio] = useState(1)
   const [division, setDivision] = useState(1)
   const [rol, setRol] = useState('')
@@ -15,9 +15,9 @@ export default function usePersona() {
   const cambiarValor = (campo, valor) => {
 
     const opciones = {
-      "nombre": (valor) => setNombre(valor),
+      "nombres": (valor) => setNombres(valor),
       "documento": (valor) => setDocumento(valor),
-      "apellido": (valor) => setApellido(valor),
+      "apellidos": (valor) => setApellidos(valor),
       "anio": (valor) => setAnio(valor),
       "division": (valor) => setDivision(valor),
       "rol": (valor) => setRol(valor),
@@ -28,9 +28,9 @@ export default function usePersona() {
   }
 
   return [{
-    nombre,
+    nombres,
     documento,
-    apellido,
+    apellidos,
     anio,
     division,
     rol,
