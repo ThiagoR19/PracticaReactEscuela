@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #00916F;
+  height: 10vh;
+  width: 100%;
+}
+
+.links {
+  color: white;
+  font-size: 20px;
+}

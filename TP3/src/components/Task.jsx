@@ -10,10 +10,9 @@ function Task({ task, index, deleteTask, updateTask }) {
   return (
     <div className={`task ${clicked ? 'taskClicked' : ''}`} onClick={() => setClicked(!clicked)}>
       <div>
-        <h3>{index}. {task.name}</h3>
-        <span className="category">{task.category}</span>
+        <h3>{index}. {task.nombre}</h3>
+        <span className="category">{task.categoria}</span>
         <select
-          value={task.state}
           onChange={(e) => updateTask(task.id, 'state', e.target.value)}
           className="state"
           onClick={(e) => e.stopPropagation()}>
@@ -22,18 +21,17 @@ function Task({ task, index, deleteTask, updateTask }) {
           <option value="Finalizada">Finalizada</option>
         </select>
         <select
-          value={task.priority}
           onChange={(e) => updateTask(task.id, 'priority', e.target.value)}
           onClick={(e) => e.stopPropagation()}
-          className={`priority ${task.priority}`}>
-          <option value="BAJA">BAJA</option>
-          <option value="MEDIA">MEDIA</option>
-          <option value="ALTA">ALTA</option>
+          className={`priority BAJA`}>
+          <option value={1}>BAJA</option>
+          <option value={2}>MEDIA</option>
+          <option value={3}>ALTA</option>
         </select>
         <FiTrash onClick={() => deleteTask(task.id)} className="trash" />
       </div>
-      <p className={`descripcion ${clicked && task.description !== '' ? 'show' : ''}`}>
-        {task.description}
+      <p className={`descripcion ${clicked && task.descripcion !== '' ? 'show' : ''}`}>
+        {task.descripcion}
       </p>
     </div>
   )

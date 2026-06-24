@@ -1,4 +1,23 @@
+#form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px;
+  flex: 1;
+  justify-content: center;
+}
+
+h1 {
+  display: flex;
+  font-style: italic;
+  font-weight: 600;
+  max-width: 1200px;
+  width: 100%;
+}
+
 .form {
+  max-width: 1200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -39,4 +58,25 @@ textarea {
 .state,
 .category {
   flex: 1;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+::picker(select) {
+  border: none;
+  background: #00916F;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: .2s;
+}
+
+select:open::picker(select) {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -1,11 +1,12 @@
 .filterContainer {
   padding: 30px;
-  background-color: #00916F;
+  background-color: #135E4D;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 10px 0 10px 2px rgba(81, 81, 81, 0.25);
+  height: 100%;
 }
 
 .categorias {

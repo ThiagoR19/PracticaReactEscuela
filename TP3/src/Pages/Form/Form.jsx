@@ -35,37 +35,40 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleClick} className="form">
-      <div>
-        <input onChange={(e) => setTarea('nombre', e.target.value)} type="text" placeholder="Nombre..." />
-        <select onChange={(e) => setTarea('categoria', e.target.value)} className="category">
-          <option value="Frontend">Frontend</option>
-          <option value="Backend">Backend</option>
-          <option value="Base de datos">Base de datos</option>
-          <option value="Testing">Testing</option>
-          <option value="Seguridad">Seguridad</option>
-          <option value="Documentación">Documentación</option>
-        </select>
-        <select onChange={(e) => setTarea('estado', e.target.value)} className="state">
-          <option value="Pendiente">Pendiente</option>
-          <option value="Proceso">En Proceso</option>
-          <option value="Finalizada">Finalizada</option>
-        </select>
-        <select
-          onChange={(e) => setTarea('prioridad', e.target.value)}
-          className={`priority BAJA`}>
-          <option value="1">BAJA</option>
-          <option value="2">MEDIA</option>
-          <option value="3">ALTA</option>
-        </select>
-        <FiTrash className="trash" />
-      </div>
-      <textarea onChange={(e) => setTarea('descripcion', e.target.value)} placeholder="Descripción..." onInput={(e) => {
-        e.target.style.height = "auto";
-        e.target.style.height = e.target.scrollHeight + "px";
-      }}></textarea>
-      <button onClick={handleClick} className="addTask" type="submit">Agregar Tarea</button>
-    </form >
+    <section id="form">
+      <h1>Agregá Tu Tarea</h1>
+      <form onSubmit={handleClick} className="form">
+        <div>
+          <input onChange={(e) => setTarea('nombre', e.target.value)} type="text" placeholder="Nombre..." />
+          <select onChange={(e) => setTarea('categoria', e.target.value)} className="category">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Base de datos">Base de datos</option>
+            <option value="Testing">Testing</option>
+            <option value="Seguridad">Seguridad</option>
+            <option value="Documentación">Documentación</option>
+          </select>
+          <select onChange={(e) => setTarea('estado', e.target.value)} className="state">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Proceso">En Proceso</option>
+            <option value="Finalizada">Finalizada</option>
+          </select>
+          <select
+            onChange={(e) => setTarea('prioridad', e.target.value)}
+            className={`priority BAJA`}>
+            <option value={1}>BAJA</option>
+            <option value={2}>MEDIA</option>
+            <option value={3}>ALTA</option>
+          </select>
+          <FiTrash className="trash" />
+        </div>
+        <textarea onChange={(e) => setTarea('descripcion', e.target.value)} placeholder="Descripción..." onInput={(e) => {
+          e.target.style.height = "auto";
+          e.target.style.height = e.target.scrollHeight + "px";
+        }}></textarea>
+        <button onClick={handleClick} className="addTask" type="submit">Agregar Tarea</button>
+      </form >
+    </section>
   )
 }
 

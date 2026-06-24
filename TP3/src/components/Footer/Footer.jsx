@@ -1,6 +1,8 @@
+import './Footer.css'
+
 function Footer() {
   return (
-    <div>Footer</div>
+    <footer>Esto es un Footer</footer>
   )
 }
 

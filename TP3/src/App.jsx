@@ -11,15 +11,12 @@ import './App.css'
 export default function App() {
   return (
     <main>
-
       <Router>
         <Header />
         <Switch>
-          <Route path="/form">
-            <Form />
-          </Route>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/form"><Form /></Route>
+          <Route path="/home"><Home /></Route>
+          <Route path="/"><Home /></Route>
           <Route element={<NoEncontrado />} />
         </Switch>
         <Footer />
