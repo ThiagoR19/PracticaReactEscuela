@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/8d348586f9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="index.js" type="module"></script>
+  <link rel="icon" href="Icon.png">
+  <title>Movie Filter</title>
+</head>
+
+<body>
+  <header>
+    <h1>Listado de Peliculas</h1>
+  </header>
+  <main>
+    <section id="Filters">
+      <h2 id="Filters__h2">Filtros</h2>
+      <div id="Filters__div">
+        <div class="filter" id="filterStars">
+          <h2 class="filter__h2" id="h2Stars">Valoración <i class="fa-solid fa-chevron-down"></i></h2>
+          <div class="dropdown" id="dropStars">
+            <div data-value="mayorAMenor">Mayor a Menor</div>
+            <div data-value="menorAMayor">Menor a Mayor</div>
+          </div>
+        </div>
+        <div class="filter" id="filterCat">
+          <h2 class="filter__h2" id="h2Cat">Todas <i class="fa-solid fa-chevron-down"></i></h2>
+          <div class="dropdown" id="dropCat">
+            <div data-value="Todas">Todas</div>
+            <div data-value="Acción">Acción</div>
+            <div data-value="Comedia">Comedia</div>
+            <div data-value="Drama">Drama</div>
+            <div data-value="Terror">Terror</div>
+            <div data-value="Romance">Romance</div>
+          </div>
+        </div>
+        <div class="filter" id="filterAZ">
+          <h2 class="filter__h2" id="h2AZ">A - Z <i class="fa-solid fa-chevron-down"></i></h2>
+          <div class="dropdown" id="dropAZ">
+            <div data-value="az">A → Z</div>
+            <div data-value="za">Z → A</div>
+          </div>
+        </div>
+        <div class="filter" id="deleteFilters">
+          <h2 class="filter__h2">Borrar Filtros</h2>
+        </div>
+        <button id="Filters__div-button">Agregar Pelicula</button>
+      </div>
+    </section>
+    <section id="Movies">
+    </section>
+  </main>
+</body>
+
+<div id="overlay"></div>
+<div id="verMovie"></div>
+
+<div id="crearMovie">
+  <div id="crearImagen">
+    <img src="image2.png" alt="">
+    <input id="url" type="text" placeholder="URL de portada...">
+  </div>
+  <div id="crearTituloYCat">
+    <input id="title" type="text" placeholder="Título">
+    <select name="" id="cat">
+      <option value="" disabled selected hidden>Categoría</option>
+      <option value="Accion">Accion</option>
+      <option value="Comedia">Comedia</option>
+      <option value="Drama">Drama</option>
+      <option value="Accion">Terror</option>
+      <option value="Romance">Romance</option>
+    </select>
+  </div>
+  <input id="descripcion" type="text" placeholder="Descripción...">
+  <div id="crearStarYAgregar">
+    <input id="starInput" type="number" placeholder="1" max="5" min="1">
+    <h3> / 5</h3>
+    <button id="addMovie">Agregar</button>
+  </div>
+</div>
+
+</html>
