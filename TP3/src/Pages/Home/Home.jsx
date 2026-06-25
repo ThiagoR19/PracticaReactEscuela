@@ -1,52 +1,48 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-import { defaultTasks } from "../../context/tareasDefault"
 import FilterContainer from "../../components/FilterContainer"
 import List from "../../components/List"
 
 import './Home.css'
+import { CONFIG } from "../../context/config"
 
-const priorityOrder = {
-  2: 'ALTA',
-  1: 'MEDIA',
-  0: 'BAJA'
-}
 
 const sortTasksByPriority = (tasks) => {
-  return [...tasks].sort((a, b) => priorityOrder[a] - priorityOrder[b])
+  return [...tasks].sort((a, b) => a.prioridad - b.prioridad)
 }
 
 function Home() {
 
-  const [tasks, setTasks] = useState(sortTasksByPriority(defaultTasks))
+  const [tasks, setTasks] = useState(sortTasksByPriority([]))
   const [filteredTasks, setFilteredTasks] = useState(tasks)
 
-  const URL = 'https://api-tareas.ctpoba.edu.ar/api/tareas'
-  const CONFIG = { headers: { Authorization: '47958998' } }
-
-  useEffect(() => {
+  const refreshTasks = () => {
+    const URL = 'https://api-tareas.ctpoba.edu.ar/api/tareas'
     axios.get(URL, CONFIG)
       .then((res) => {
-        console.log(res.data.tareas)
         sortTasksByPriority(res.data.tareas)
         setTasks(sortTasksByPriority(res.data.tareas))
+        setFilteredTasks(sortTasksByPriority(res.data.tareas))
       })
       .catch((error) => {
         console.error(error)
       })
+  }
+
+  useEffect(() => {
+    refreshTasks()
   }, [])
 
 
   const filterTasks = (filter) => {
     if (filter === 'Todas') { setFilteredTasks(tasks); return }
-    const newTasks = tasks.filter((task) => task.category == filter)
+    const newTasks = tasks.filter((task) => task.categoria == filter)
     setFilteredTasks(newTasks)
   }
 
   const deleteTask = (id) => {
-    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/:${id}`
-    const CONFIG = { headers: { Authorization: '47958998' } }
+    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/${id}`
     axios.delete(URL, CONFIG)
       .then((res) => {
         console.log(res)
@@ -54,24 +50,29 @@ function Home() {
       .catch((error) => {
         console.error(error)
       })
+      .finally(() => {
+        refreshTasks()
+      })
   }
 
-  const updateTask = (id, field, value) => {
-    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/estado/:${id}`
-    const CONFIG = { headers: { Authorization: '47958998' } }
-    axios.put(URL, value, CONFIG)
+  const updateTask = (id, estado) => {
+    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/estado/${id}`
+    axios.put(URL, { estado }, CONFIG)
       .then((res) => {
         console.log(res)
       })
       .catch((error) => {
         console.error(error)
       })
+      .finally(() => {
+        refreshTasks()
+      })
   }
 
   return (
     <section className="tasksContainer">
       <FilterContainer filterTasks={filterTasks} className='filterContainer' />
-      <List deleteTask={deleteTask} updateTask={updateTask} tasks={tasks} filteredTasks={filteredTasks} />
+      <List deleteTask={deleteTask} updateTask={updateTask} tasks={filteredTasks} />
     </section>
   )
 }

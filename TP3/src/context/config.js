@@ -1,0 +1,1 @@
+export const CONFIG = { headers: { Authorization: '47958998' } }

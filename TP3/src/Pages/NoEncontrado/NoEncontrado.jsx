@@ -1,6 +1,6 @@
 function NoEncontrado() {
   return (
-    <div>NoEncontrado</div>
+    <section>No se ha Encontrado este sitio (Error 404)</section>
   )
 }
 

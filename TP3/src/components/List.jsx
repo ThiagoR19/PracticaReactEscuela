@@ -7,7 +7,8 @@ function List({ tasks, deleteTask, updateTask }) {
     <article className="list">
       <h2 className="tasksH2">Tareas</h2>
       <div className="list-div">
-        {tasks.map((task, index) => <Task key={task.id} index={index + 1} task={task} deleteTask={deleteTask} updateTask={updateTask} />)}
+        {tasks.length ? tasks.map((task, index) => <Task key={task.id} index={index + 1} task={task} deleteTask={deleteTask} updateTask={updateTask} />) : <p>Parece que no tienes tareas aún.</p>
+        }
       </div>
     </article>
   )

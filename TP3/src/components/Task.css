@@ -27,11 +27,18 @@ h3 {
 .state,
 .priority,
 .category {
+  user-select: none;
+}
+
+.state,
+.priority,
+.category {
   margin: 0 10px;
   flex: 1;
   text-align: start;
   padding: 7px 10px;
   font-size: 13px;
+
 }
 
 .category {

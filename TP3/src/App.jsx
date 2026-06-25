@@ -17,7 +17,7 @@ export default function App() {
           <Route path="/form"><Form /></Route>
           <Route path="/home"><Home /></Route>
           <Route path="/"><Home /></Route>
-          <Route element={<NoEncontrado />} />
+          <Route><NoEncontrado /></Route>
         </Switch>
         <Footer />
       </Router>

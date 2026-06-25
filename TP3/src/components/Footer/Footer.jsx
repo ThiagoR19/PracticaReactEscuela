@@ -2,7 +2,7 @@ import './Footer.css'
 
 function Footer() {
   return (
-    <footer>Esto es un Footer</footer>
+    <footer>© Sitio Creado por Thiago Riffo</footer>
   )
 }
 
