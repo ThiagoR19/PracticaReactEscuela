@@ -7,4 +7,3 @@ Realizar las modificaciones necesarias para implementar las nuevas rutas utiliza
 Martes 30 - Jueves 2
 
 https://api-tareas.ctpoba.edu.ar
-https://api-tareas.ctpoba.edu.ar

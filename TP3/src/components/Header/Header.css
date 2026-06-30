@@ -1,10 +1,15 @@
-header {
+header,
+.header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: #00916F;
   height: 10vh;
   width: 100%;
+}
+
+.header {
+  color: white;
 }
 
 .links {

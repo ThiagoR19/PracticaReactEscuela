@@ -4,7 +4,8 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Form from './Pages/Form/Form'
 import NoEncontrado from './Pages/NoEncontrado/NoEncontrado'
-import Home from './Pages/Home/Home'
+import Listado from './Pages/Listado/Listado'
+import Inicio from './Pages/Inicio/Inicio'
 
 import './App.css'
 
@@ -15,8 +16,8 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/form"><Form /></Route>
-          <Route path="/home"><Home /></Route>
-          <Route path="/"><Home /></Route>
+          <Route path="/Listado"><Listado /></Route>
+          <Route path="/inicio"><Inicio /></Route>
           <Route><NoEncontrado /></Route>
         </Switch>
         <Footer />

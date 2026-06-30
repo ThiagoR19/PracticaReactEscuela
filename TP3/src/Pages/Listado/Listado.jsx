@@ -4,26 +4,24 @@ import axios from "axios"
 import FilterContainer from "../../components/FilterContainer"
 import List from "../../components/List"
 
-import './Home.css'
+import './Listado.css'
 import { CONFIG } from "../../context/config"
 
+function Listado() {
 
-const sortTasksByPriority = (tasks) => {
-  return [...tasks].sort((a, b) => a.prioridad - b.prioridad)
-}
-
-function Home() {
-
-  const [tasks, setTasks] = useState(sortTasksByPriority([]))
-  const [filteredTasks, setFilteredTasks] = useState(tasks)
+  const [tasks, setTasks] = useState([])
 
   const refreshTasks = () => {
     const URL = 'https://api-tareas.ctpoba.edu.ar/api/tareas'
+    const CONFIG = {
+      headers: { Authorization: '47958998' },
+      params: {
+        orden: 'DESC'
+      }
+    }
     axios.get(URL, CONFIG)
       .then((res) => {
-        sortTasksByPriority(res.data.tareas)
-        setTasks(sortTasksByPriority(res.data.tareas))
-        setFilteredTasks(sortTasksByPriority(res.data.tareas))
+        setTasks(res.data.tareas)
       })
       .catch((error) => {
         console.error(error)
@@ -36,9 +34,22 @@ function Home() {
 
 
   const filterTasks = (filter) => {
-    if (filter === 'Todas') { setFilteredTasks(tasks); return }
-    const newTasks = tasks.filter((task) => task.categoria == filter)
-    setFilteredTasks(newTasks)
+    if (filter == 'Todas') { refreshTasks(); return }
+    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas`
+    const CONFIG = {
+      headers: { Authorization: '47958998' },
+      params: {
+        categoria: filter,
+        orden: 'DESC'
+      }
+    }
+    axios.get(URL, CONFIG)
+      .then((res) => {
+        setTasks(res.data.tareas)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   const deleteTask = (id) => {
@@ -72,9 +83,9 @@ function Home() {
   return (
     <section className="tasksContainer">
       <FilterContainer filterTasks={filterTasks} className='filterContainer' />
-      <List deleteTask={deleteTask} updateTask={updateTask} tasks={filteredTasks} />
+      <List deleteTask={deleteTask} updateTask={updateTask} tasks={tasks} />
     </section>
   )
 }
 
-export default Home
+export default Listado

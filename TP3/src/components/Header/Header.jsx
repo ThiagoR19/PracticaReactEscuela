@@ -6,7 +6,8 @@ function Header() {
   return (
     <header>
       <Link className='links' href="/form">Agregár Tarea</Link>
-      <Link className='links' href="/home">Inicio</Link>
+      <Link className='links' href="/inicio">Inicio</Link>
+      <Link className='links' href="/listado">Listado</Link>
     </header>
   )
 }
