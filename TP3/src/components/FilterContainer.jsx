@@ -10,13 +10,13 @@ const categories = [
   'Documentación'
 ]
 
-function FilterContainer({ filterTasks }) {
+function FilterContainer({ refreshTasks }) {
 
   return (
     <section className='filterContainer'>
       <h2 className='categorias'>Categorias</h2>
       <div className='filters'>
-        {categories.map((category) => <button key={category} onClick={() => filterTasks(category)} className="btn btn-border-reveal">{category}</button>)}
+        {categories.map((category) => <button key={category} onClick={() => refreshTasks(category)} className="btn btn-border-reveal">{category}</button>)}
       </div>
     </section>
   )
