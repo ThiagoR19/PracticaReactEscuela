@@ -44,7 +44,7 @@ function Home() {
   }
 
   const deleteTask = (id) => {
-    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/${id}`
+    const URL = `https://api-tareas.ctpoba.edu.ar/api/tareas/:${id}`
     const CONFIG = { headers: { Authorization: '47958998' } }
     axios.delete(URL, CONFIG)
       .then((res) => {
