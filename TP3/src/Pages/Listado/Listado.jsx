@@ -10,9 +10,10 @@ import { CONFIG } from "../../context/config"
 function Listado() {
 
   const [tasks, setTasks] = useState([])
+  const [filter, setFilter] = useState(null)
 
-  const refreshTasks = (filter) => {
-    if (filter == 'Todas') { refreshTasks(); return }
+  const refreshTasks = (filter = null) => {
+    if (filter == 'Todas') { refreshTasks(); setFilter(null); return }
     const URL = 'https://api-tareas.ctpoba.edu.ar/api/tareas'
     const CONFIG = {
       headers: { Authorization: '47958998' },
@@ -44,7 +45,7 @@ function Listado() {
         console.error(error)
       })
       .finally(() => {
-        refreshTasks()
+        refreshTasks(filter)
       })
   }
 
@@ -58,13 +59,13 @@ function Listado() {
         console.error(error)
       })
       .finally(() => {
-        refreshTasks()
+        refreshTasks(filter)
       })
   }
 
   return (
     <section className="tasksContainer">
-      <FilterContainer refreshTasks={refreshTasks} className='filterContainer' />
+      <FilterContainer refreshTasks={refreshTasks} setFilter={setFilter} className='filterContainer' />
       <List deleteTask={deleteTask} updateTask={updateTask} tasks={tasks} />
     </section>
   )
